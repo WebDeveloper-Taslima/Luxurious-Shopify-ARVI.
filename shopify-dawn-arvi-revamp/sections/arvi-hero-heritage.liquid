@@ -1,0 +1,120 @@
+{% comment %}
+  ARVI Heritage Hero Banner Section
+  Compatible with Shopify Dawn 16.0+
+{% endcomment %}
+
+{{ 'arvi-luxury.css' | asset_url | stylesheet_tag }}
+
+<section class="arvi-hero-section" id="arvi-hero-{{ section.id }}">
+  {% if section.settings.image != blank %}
+    <img 
+      src="{{ section.settings.image | image_url: width: 2400 }}" 
+      alt="{{ section.settings.heading | escape }}" 
+      class="arvi-hero-bg" 
+      loading="eager" 
+      width="2400" 
+      height="1350"
+    >
+  {% else %}
+    <img 
+      src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop" 
+      alt="ARVI Swiss Fine Wine Merchant Vaults" 
+      class="arvi-hero-bg" 
+      loading="eager"
+    >
+  {% endif %}
+
+  <div class="arvi-hero-overlay"></div>
+
+  <div class="arvi-hero-content">
+    {% if section.settings.kicker != blank %}
+      <div class="arvi-heritage-pill">
+        <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <span>{{ section.settings.kicker }}</span>
+      </div>
+    {% endif %}
+
+    <h1 class="arvi-hero-title">
+      {{ section.settings.heading | default: 'Switzerland’s Premier Destination for <em>Fine & Rare Wines</em>' }}
+    </h1>
+
+    <p class="arvi-hero-subtitle">
+      {{ section.settings.subheading | default: 'Direct châteaux allocations, subterranean climate-controlled cellars, and bespoke sommelier advisory. Over 10,000 legendary labels ready for Swiss & global delivery.' }}
+    </p>
+
+    <div class="arvi-hero-ctas">
+      {% if section.settings.button_primary_label != blank %}
+        <a href="{{ section.settings.button_primary_link | default: '/collections/all' }}" class="arvi-btn-primary">
+          <span>{{ section.settings.button_primary_label }}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      {% endif %}
+
+      {% if section.settings.button_secondary_label != blank %}
+        <a href="{{ section.settings.button_secondary_link | default: '/pages/shops' }}" class="arvi-btn-secondary">
+          <span>{{ section.settings.button_secondary_label }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ARVI Heritage Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Heritage Kicker / Badge",
+      "default": "Established 1991 • Melano, Switzerland"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Hero Headline",
+      "default": "Switzerland’s Premier Destination for Fine & Rare Wines"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheadline",
+      "default": "Direct châteaux allocations, subterranean climate-controlled cellars, and bespoke sommelier advisory. Over 10,000 legendary labels ready for Swiss & global delivery."
+    },
+    {
+      "type": "text",
+      "id": "button_primary_label",
+      "label": "Primary CTA Label",
+      "default": "Explore Fine Wine Vault"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Primary CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_label",
+      "label": "Secondary CTA Label",
+      "default": "Discover Our Boutiques"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Secondary CTA Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ARVI Heritage Hero"
+    }
+  ]
+}
+{% endschema %}

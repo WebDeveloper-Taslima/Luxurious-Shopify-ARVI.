@@ -1,0 +1,63 @@
+{% comment %}
+  ARVI Brand Heritage & Cellar Storytelling Section
+  Compatible with Shopify Dawn 16.0+
+{% endcomment %}
+
+<div class="arvi-storytelling-section" style="background: #0e0e11; padding: 100px 0; border-top: 1px solid rgba(197, 168, 128, 0.15); color: #ffffff;">
+  <div style="max-width: 1380px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+    
+    <div class="arvi-story-media" style="position: relative;">
+      <div style="border-radius: 6px; overflow: hidden; border: 1px solid rgba(197, 168, 128, 0.25); box-shadow: var(--arvi-shadow-luxe);">
+        <img 
+          src="https://arvi.ch/images/uploaded/Shops_01.png" 
+          alt="ARVI Subterranean Wine Vault Melano Switzerland" 
+          style="width: 100%; height: auto; display: block; filter: brightness(0.9) contrast(1.05);"
+        >
+      </div>
+      <div style="position: absolute; bottom: -20px; right: -20px; background: #18181c; border: 1px solid var(--arvi-gold); padding: 18px 24px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+        <span style="font-family: var(--arvi-font-mono); font-size: 24px; color: var(--arvi-gold-bright); font-weight: 700; display: block;">10,000+</span>
+        <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #bbb7af;">Rare Labels In Stock</span>
+      </div>
+    </div>
+
+    <div class="arvi-story-content">
+      <span class="arvi-section-kicker">Heritage & Craftsmanship</span>
+      <h2 style="font-family: var(--arvi-font-serif); font-size: clamp(34px, 3.5vw, 48px); line-height: 1.15; margin: 0 0 24px 0; font-weight: 300;">
+        From Switzerland’s Deepest Vaults to <em>Your Private Cellar</em>
+      </h2>
+
+      <p style="font-size: 16px; line-height: 1.7; color: #cfcac0; margin-bottom: 20px;">
+        Headquartered in Melano on the shores of Lake Lugano since 1991, ARVI SA represents the pinnacle of fine and rare wine merchantry. We bypass secondary middlemen to source directly from premier Châteaux and Domaines across Bordeaux, Burgundy, Champagne, and Tuscany.
+      </p>
+
+      <p style="font-size: 15px; line-height: 1.7; color: #a6a29a; margin-bottom: 32px;">
+        Every single bottle rests within our state-of-the-art subterranean cellars under strictly regulated micro-climates (12°C constant temperature, 70% humidity) until dispatch. Whether you are building an investment-grade portfolio or securing an iconic vintage for life’s grandest milestones, our Swiss integrity guarantees authentic perfection.
+      </p>
+
+      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <a href="/pages/shops" class="arvi-btn-primary">
+          <span>Explore Arvino Boutiques</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#sommelierModal" data-arvi-modal="sommelier" class="arvi-btn-secondary">
+          <span>Private Sommelier Consultation</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ARVI Brand Storytelling",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "ARVI Brand Storytelling"
+    }
+  ]
+}
+{% endschema %}

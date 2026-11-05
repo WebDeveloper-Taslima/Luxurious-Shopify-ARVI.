@@ -1,0 +1,272 @@
+{% comment %}
+  ARVI Elevated Luxury Product Main Section
+  Features 360° bottle viewer, label magnifier, critic score matrix,
+  vintage grid, format selector, and persuasive luxury call-outs.
+  Compatible with Shopify Dawn 16.0+
+{% endcomment %}
+
+{{ 'arvi-luxury.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'arvi-luxury.js' | asset_url }}" defer="defer"></script>
+
+<section class="arvi-product-layout" id="arvi-product-{{ section.id }}" data-product-id="{{ product.id }}">
+  
+  <!-- LEFT COLUMN: INTERACTIVE BOTTLE SHOWCASE -->
+  <div class="arvi-bottle-viewer-wrapper">
+    <div class="arvi-bottle-viewport" id="arviBottleViewport">
+      {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+      {% if featured_media %}
+        <img 
+          id="arviMainBottleImg"
+          src="{{ featured_media | image_url: width: 1200 }}" 
+          alt="{{ product.title | escape }} - ARVI Fine Wine Inspection"
+          loading="eager"
+        >
+      {% else %}
+        <img 
+          id="arviMainBottleImg"
+          src="https://arvi.ch/images/thumbs/0004339_Masseto_6923_3010_375.png" 
+          alt="{{ product.title | escape }} - ARVI Swiss Cellar Bottle"
+          loading="eager"
+        >
+      {% endif %}
+
+      <!-- Magnifier Lens Overlay -->
+      <div class="arvi-magnifier-lens" id="arviMagnifierLens"></div>
+    </div>
+
+    <!-- Viewer Controls Toolbar -->
+    <div class="arvi-viewer-toolbar">
+      <button type="button" class="arvi-toolbar-btn" data-arvi-action="toggle-360">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+        <span>Interactive 360°</span>
+      </button>
+
+      <button type="button" class="arvi-toolbar-btn" data-arvi-action="toggle-zoom">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <span>Inspect Label (Zoom)</span>
+      </button>
+
+      {% if product.metafields.arvi.video_url != blank %}
+        <a href="{{ product.metafields.arvi.video_url }}" target="_blank" class="arvi-toolbar-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Estate Video</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Provenance Seal -->
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--arvi-gold);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Verified Single-Owner Cellar Provenance</span>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: ELEVATED PRODUCT DETAILS & CONCIERGE BUYING -->
+  <div class="arvi-product-details">
+    
+    <!-- Breadcrumbs -->
+    <nav class="arvi-product-breadcrumbs" aria-label="Breadcrumbs">
+      <a href="/">Home</a> / 
+      <a href="/collections/all">{{ product.vendor | default: 'Bordeaux' }}</a> / 
+      <span>{{ product.title }}</span>
+    </nav>
+
+    <!-- Appellation & Producer -->
+    <div class="arvi-product-appellation">
+      {{ product.metafields.arvi.appellation | default: 'Pomerol Grand Cru • Bordeaux, France' }}
+    </div>
+
+    <!-- Product Title -->
+    <h1 class="arvi-product-heading">
+      {{ product.title }} <span class="vintage-highlight">{{ product.metafields.arvi.vintage | default: '2009' }}</span>
+    </h1>
+
+    <!-- Critic Score Matrix -->
+    <div class="arvi-critic-matrix">
+      <div class="arvi-critic-card">
+        <span class="arvi-critic-name">Robert Parker</span>
+        <span class="arvi-critic-points">100/100</span>
+      </div>
+      <div class="arvi-critic-card">
+        <span class="arvi-critic-name">James Suckling</span>
+        <span class="arvi-critic-points">99/100</span>
+      </div>
+      <div class="arvi-critic-card">
+        <span class="arvi-critic-name">Antonio Galloni</span>
+        <span class="arvi-critic-points">98/100</span>
+      </div>
+      <div class="arvi-critic-card">
+        <span class="arvi-critic-name">Jancis Robinson</span>
+        <span class="arvi-critic-points">19.5/20</span>
+      </div>
+    </div>
+
+    <!-- Available Vintages Matrix -->
+    <div class="arvi-vintage-selector-section">
+      <label>Select Vintage Allocation</label>
+      <div class="arvi-vintage-pills">
+        <button type="button" class="arvi-vintage-btn" data-vintage="2005" data-price="CHF 2,450.00" data-score="98/100">2005</button>
+        <button type="button" class="arvi-vintage-btn selected" data-vintage="2009" data-price="CHF 2,053.90" data-score="100/100">2009 (100 Pts)</button>
+        <button type="button" class="arvi-vintage-btn" data-vintage="2010" data-price="CHF 2,680.00" data-score="100/100">2010</button>
+        <button type="button" class="arvi-vintage-btn" data-vintage="2015" data-price="CHF 1,980.00" data-score="99/100">2015</button>
+        <button type="button" class="arvi-vintage-btn" data-vintage="2018" data-price="CHF 1,890.00" data-score="98/100">2018</button>
+        <button type="button" class="arvi-vintage-btn" data-vintage="2020" data-price="CHF 2,150.00" data-score="99/100">2020</button>
+      </div>
+    </div>
+
+    <!-- Bottle Formats & Original Wooden Cases (OWC) -->
+    <div class="arvi-vintage-selector-section">
+      <label>Bottling Format & Case</label>
+      <div class="arvi-format-selector">
+        <div class="arvi-format-option selected">
+          <div class="arvi-format-name">Standard 750ml</div>
+          <div class="arvi-format-price">Single Bottle</div>
+        </div>
+        <div class="arvi-format-option">
+          <div class="arvi-format-name">Magnum 1500ml</div>
+          <div class="arvi-format-price">+ CHF 2,100.00</div>
+        </div>
+        <div class="arvi-format-option">
+          <div class="arvi-format-name">OWC Case of 6</div>
+          <div class="arvi-format-price">Original Banded</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing & Buy Box -->
+    <div class="arvi-product-price-box">
+      <div class="arvi-price-row">
+        <div>
+          <div class="arvi-main-price" data-arvi-price data-base-price="{{ product.selected_or_first_available_variant.price | default: 205390 | divided_by: 100.0 }}">
+            CHF {{ product.selected_or_first_available_variant.price | default: 205390 | money_without_currency }}
+          </div>
+          <div class="arvi-tax-note">Incl. 8.1% Swiss VAT / Free Bonded Storage Option</div>
+        </div>
+
+        <div class="arvi-currency-tax-toggle">
+          <select id="arviTaxTypeSelect" aria-label="Swiss Tax Selection">
+            <option value="incl" selected>CHF (VAT Incl.)</option>
+            <option value="excl">CHF (Bonded / VAT Excl.)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Scarcity & Provenance Persuasive Callout -->
+      <div class="arvi-stock-provenance-callout">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <div>
+          <strong>Only 3 bottles remaining in Melano Central Vault.</strong><br>
+          Insured climate-controlled delivery within 24h across Switzerland or reserved in Swiss Bonded Vault.
+        </div>
+      </div>
+
+      <!-- Add to Cart Form -->
+      {% form 'product', product, id: 'arviProductForm', class: 'arvi-product-form' %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        
+        <div class="arvi-actions-row">
+          <input type="number" name="quantity" value="1" min="1" max="6" class="arvi-qty-input" aria-label="Quantity">
+          <button type="submit" class="arvi-btn-primary arvi-btn-add-cart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Secure Allocation</span>
+          </button>
+        </div>
+      {% endform %}
+
+      <!-- Sommelier Direct Concierge -->
+      <div class="arvi-sommelier-strip">
+        <span>Need guidance on drinking window or cellar suitability?</span>
+        <a href="#sommelierModal" data-arvi-modal="sommelier">Speak with Head Sommelier</a>
+      </div>
+    </div>
+
+    <!-- Wine Technical Dossier -->
+    <div class="arvi-technical-dossier">
+      <h3 style="font-family: var(--arvi-font-serif); font-size: 22px; color: var(--arvi-gold); margin: 0 0 12px 0;">Technical Dossier & Sommelier Notes</h3>
+      <p style="font-size: 14px; line-height: 1.7; color: #cfcac0;">
+        {{ product.description | default: "Exhibiting profound aromas of black truffles, crushed violets, and concentrated blackberry liqueur. On the palate, seamless velvety tannins are balanced with pristine acidity, echoing the iconic terroir of Pomerol's blue clay plateau. A monumental vintage possessing exceptional longevity." }}
+      </p>
+
+      <div class="arvi-technical-grid">
+        <div class="arvi-spec-item">
+          <div class="arvi-spec-label">Blend / Varietal</div>
+          <div class="arvi-spec-value">100% Merlot</div>
+        </div>
+        <div class="arvi-spec-item">
+          <div class="arvi-spec-label">Alcohol by Volume</div>
+          <div class="arvi-spec-value">14.5% ABV</div>
+        </div>
+        <div class="arvi-spec-item">
+          <div class="arvi-spec-label">Ideal Drinking Window</div>
+          <div class="arvi-spec-value">2026 – 2065</div>
+        </div>
+        <div class="arvi-spec-item">
+          <div class="arvi-spec-label">Serving Temperature</div>
+          <div class="arvi-spec-value">16°C – 18°C (Decant 3 hrs)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STICKY LUXURY ADD-TO-CART BAR -->
+<div class="arvi-sticky-cart-bar" id="arviStickyCartBar">
+  <div class="arvi-sticky-prod-snippet">
+    <img src="{{ featured_media | image_url: width: 100 | default: 'https://arvi.ch/images/thumbs/0004339_Masseto_6923_3010_375.png' }}" alt="{{ product.title }}" class="arvi-sticky-thumb">
+    <div>
+      <div class="arvi-sticky-title">{{ product.title }}</div>
+      <div class="arvi-sticky-price">CHF {{ product.selected_or_first_available_variant.price | default: 205390 | money_without_currency }}</div>
+    </div>
+  </div>
+  <button type="button" onclick="document.getElementById('arviProductForm').submit()" class="arvi-btn-primary">
+    <span>Secure Bottle</span>
+  </button>
+</div>
+
+<!-- SOMMELIER ADVISORY MODAL -->
+<div class="arvi-modal-backdrop" id="arviSommelierModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#141418; border:1px solid var(--arvi-gold); border-radius:6px; max-width:560px; width:90%; padding:36px; position:relative; color:#ffffff; box-shadow:var(--arvi-shadow-luxe);">
+    <button type="button" class="arvi-modal-close" style="position:absolute; top:18px; right:18px; background:transparent; border:none; color:var(--arvi-gold); font-size:24px; cursor:pointer;">&times;</button>
+    <span class="arvi-section-kicker">Private Concierge</span>
+    <h3 style="font-family:var(--arvi-font-serif); font-size:28px; margin:0 0 12px 0;">Consult with an ARVI Sommelier</h3>
+    <p style="font-size:14px; color:var(--arvi-muted); line-height:1.6; margin-bottom:24px;">
+      Our team in Zurich, Lugano, and Melano provides bespoke cellar curation, tasting guidance, and tax-free storage advice.
+    </p>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <a href="tel:+41916496888" class="arvi-btn-secondary" style="justify-content:flex-start;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call Melano Vault: +41 91 649 68 88</span>
+      </a>
+      <a href="https://wa.me/41916496888" target="_blank" class="arvi-btn-secondary" style="justify-content:flex-start;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span>Direct Sommelier WhatsApp Chat</span>
+      </a>
+      <a href="mailto:info@arvi.ch" class="arvi-btn-secondary" style="justify-content:flex-start;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>Email: info@arvi.ch</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .arvi-modal-backdrop.active {
+    display: flex !important;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ARVI Luxury Product",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "ARVI Luxury Product"
+    }
+  ]
+}
+{% endschema %}

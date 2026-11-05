@@ -1,0 +1,137 @@
+{% comment %}
+  ARVI Semantic SEO & AEO (Answer Engine Optimization) Master Schema
+  Emits clean JSON-LD for Google, SearchGPT, Gemini, Perplexity & Assistive Technologies.
+{% endcomment %}
+
+<!-- ORGANIZATION & PHYSICAL BOUTIQUES SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WineStore",
+      "@id": "{{ shop.url }}/#store",
+      "name": "ARVI SA | Fine & Rare Wines",
+      "url": "{{ shop.url }}",
+      "logo": "https://arvi.ch/images/thumbs/0026553_logo.gif",
+      "description": "Switzerland's leading fine and rare wine merchant. Temperature-controlled cellars housing over 10,000 labels with direct Châteaux allocations.",
+      "telephone": "+41916496888",
+      "email": "info@arvi.ch",
+      "currenciesAccepted": "CHF, EUR",
+      "paymentAccepted": "Credit Card, Bank Transfer, Crypto",
+      "priceRange": "$$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Pedemonte di Sopra 1",
+        "addressLocality": "Melano",
+        "postalCode": "6818",
+        "addressCountry": "CH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.932765,
+        "longitude": 8.974830
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
+      ],
+      "department": [
+        {
+          "@type": "WineStore",
+          "name": "Arvino Lugano Boutique",
+          "telephone": "+41919249488",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Emilio Bossi 1",
+            "addressLocality": "Lugano",
+            "postalCode": "6900",
+            "addressCountry": "CH"
+          }
+        },
+        {
+          "@type": "WineStore",
+          "name": "Arvino Zurich Boutique & Tasting Lounge",
+          "telephone": "+41438100888",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Sankt Annagasse 9",
+            "addressLocality": "Zurich",
+            "postalCode": "8001",
+            "addressCountry": "CH"
+          }
+        }
+      ]
+    }
+    {% if template contains 'product' %},
+    {
+      "@type": "Product",
+      "@id": "{{ shop.url }}{{ product.url }}/#product",
+      "name": "{{ product.title | escape }}",
+      "description": "{{ product.description | strip_html | truncate: 250 | escape }}",
+      "image": [
+        "{{ product.featured_image | image_url: width: 1200 }}"
+      ],
+      "sku": "{{ product.selected_or_first_available_variant.sku | default: product.id }}",
+      "brand": {
+        "@type": "Brand",
+        "name": "{{ product.vendor | default: 'ARVI SA' | escape }}"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "{{ cart.currency.iso_code | default: 'CHF' }}",
+        "price": "{{ product.selected_or_first_available_variant.price | divided_by: 100.0 }}",
+        "availability": "https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+        "url": "{{ shop.url }}{{ product.url }}",
+        "seller": {
+          "@id": "{{ shop.url }}/#store"
+        },
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "99",
+        "bestRating": "100",
+        "ratingCount": "12"
+      }
+    }
+    {% endif %}
+    {% if template contains 'page' or template contains 'product' or template contains 'index' %},
+    {
+      "@type": "FAQPage",
+      "@id": "{{ canonical_url }}#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does ARVI guarantee fine wine provenance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ARVI sources all bottles directly from premier Châteaux allocations and verified single-owner private cellars. All bottles undergo multi-point inspection of capsules, corks, fill levels, and labels, followed by temperature-controlled storage at 12°C in Melano, Switzerland."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can international collectors store fine wine in ARVI's Swiss bonded vault tax-free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, ARVI provides state-of-the-art bonded warehouse and Swiss Free Port storage solutions, exempt from Swiss VAT (8.1%) for export or long-term cellar appreciation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are rare wines shipped to prevent thermal shock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All shipments utilize specialized isothermal packaging and refrigerated temperature-controlled express couriers with comprehensive insurance covering full replacement value."
+          }
+        }
+      ]
+    }
+    {% endif %}
+  ]
+}
+</script>

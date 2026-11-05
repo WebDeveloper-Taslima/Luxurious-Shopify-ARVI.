@@ -1,0 +1,1699 @@
+/* ==========================================================================
+   ARVI SA | LUXURY SHOPIFY THEME EXTENSION (DAWN 16.0+ COMPATIBLE)
+   Designed for Swiss Fine & Rare Wine Merchant Architecture
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Brand Luxury Palette */
+  --arvi-noir: #0a0a0b;
+  --arvi-noir-surface: #121214;
+  --arvi-noir-card: #18181c;
+  --arvi-noir-border: rgba(197, 168, 128, 0.22);
+  --arvi-gold: #c5a880;
+  --arvi-gold-bright: #e2c9a6;
+  --arvi-gold-dark: #998a65;
+  --arvi-gold-soft: rgba(197, 168, 128, 0.12);
+  --arvi-gold-gradient: linear-gradient(135deg, #dfc39d 0%, #c5a880 50%, #998a65 100%);
+  --arvi-bordeaux: #5c1a1b;
+  --arvi-bordeaux-deep: #3b0e10;
+  --arvi-bordeaux-glow: rgba(92, 26, 27, 0.25);
+  --arvi-cream: #fbf9f5;
+  --arvi-cream-surface: #f4efe6;
+  --arvi-cream-border: #e6dfd1;
+  --arvi-muted: #8c8984;
+  --arvi-text-light: #f5f5f7;
+  --arvi-text-dim: #a19f9b;
+
+  /* Typography */
+  --arvi-font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --arvi-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --arvi-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Elevation & Glows */
+  --arvi-shadow-luxe: 0 20px 45px -10px rgba(0, 0, 0, 0.45);
+  --arvi-shadow-gold: 0 8px 30px -5px rgba(197, 168, 128, 0.25);
+  --arvi-transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Refinements */
+body {
+  font-family: var(--arvi-font-sans);
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .h1, .h2, .h3, .arvi-heading-serif {
+  font-family: var(--arvi-font-serif);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   1. LUXURY HEADER & NAVIGATION ENHANCEMENTS
+   ========================================================================== */
+.header-wrapper--arvi-luxury {
+  background: rgba(10, 10, 11, 0.95) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.18);
+  transition: var(--arvi-transition);
+}
+
+.arvi-header-topbar {
+  background: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 0;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--arvi-muted);
+}
+
+.arvi-topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.arvi-topbar-left, .arvi-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.arvi-topbar-link {
+  color: var(--arvi-muted);
+  text-decoration: none;
+  transition: var(--arvi-transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.arvi-topbar-link:hover, .arvi-topbar-link.active {
+  color: var(--arvi-gold);
+}
+
+.arvi-currency-tax-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arvi-currency-tax-toggle select {
+  background: transparent;
+  border: none;
+  color: var(--arvi-text-light);
+  font-size: 11px;
+  cursor: pointer;
+  outline: none;
+}
+
+.arvi-currency-tax-toggle select option,
+select option {
+  background-color: #141418 !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  padding: 8px 12px !important;
+}
+
+.header-wrapper--arvi-luxury .header__menu-item {
+  color: #f1ede5 !important;
+  font-family: var(--arvi-font-sans);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: var(--arvi-transition);
+  padding: 12px 16px;
+}
+
+.header-wrapper--arvi-luxury .header__menu-item:hover {
+  color: var(--arvi-gold) !important;
+}
+
+.header-wrapper--arvi-luxury .header__active-menu-item {
+  color: var(--arvi-gold) !important;
+  text-decoration: none !important;
+  position: relative;
+}
+
+.header-wrapper--arvi-luxury .header__active-menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--arvi-gold);
+}
+
+/* Luxury Mega Menu */
+.arvi-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #0f0f11;
+  border-bottom: 1px solid var(--arvi-gold-dark);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  padding: 40px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--arvi-transition);
+  z-index: 100;
+}
+
+.has-mega-menu:hover .arvi-mega-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arvi-mega-grid {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 1.2fr;
+  gap: 32px;
+  padding: 0 32px;
+}
+
+.arvi-mega-col h4 {
+  font-family: var(--arvi-font-serif);
+  font-size: 18px;
+  color: var(--arvi-gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.arvi-mega-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.arvi-mega-col li {
+  margin-bottom: 10px;
+}
+
+.arvi-mega-col a {
+  color: #cfcac3;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: var(--arvi-transition);
+}
+
+.arvi-mega-col a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.arvi-mega-featured-card {
+  background: #18181b;
+  border: 1px solid var(--arvi-noir-border);
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.arvi-mega-featured-card img {
+  max-height: 140px;
+  width: auto;
+  margin: 0 auto 12px;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   2. HERO & STORYTELLING BANNER MODULES
+   ========================================================================== */
+.arvi-hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--arvi-noir);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.arvi-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65) contrast(1.1);
+  transform: scale(1.03);
+  transition: transform 12s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.arvi-hero-section:hover .arvi-hero-bg {
+  transform: scale(1.08);
+}
+
+.arvi-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(10, 10, 11, 0.3) 0%, rgba(10, 10, 11, 0.85) 100%),
+              linear-gradient(to top, rgba(10, 10, 11, 0.95) 0%, transparent 40%);
+}
+
+.arvi-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.arvi-heritage-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px;
+  border: 1px solid var(--arvi-gold);
+  border-radius: 999px;
+  background: rgba(10, 10, 11, 0.6);
+  backdrop-filter: blur(10px);
+  color: var(--arvi-gold-bright);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.arvi-heritage-pill svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--arvi-gold);
+}
+
+.arvi-hero-title {
+  font-family: var(--arvi-font-serif);
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 1.08;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.arvi-hero-title em {
+  font-family: var(--arvi-font-serif);
+  font-style: italic;
+  color: var(--arvi-gold-bright);
+}
+
+.arvi-hero-subtitle {
+  font-family: var(--arvi-font-sans);
+  font-size: clamp(15px, 1.8vw, 19px);
+  line-height: 1.6;
+  color: #dfdbd4;
+  max-width: 720px;
+  margin: 0 auto 36px;
+  font-weight: 300;
+}
+
+.arvi-hero-ctas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Luxury Buttons */
+.arvi-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: var(--arvi-gold-gradient);
+  color: #000000 !important;
+  font-family: var(--arvi-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--arvi-shadow-gold);
+  transition: var(--arvi-transition);
+}
+
+.arvi-btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 12px 35px rgba(197, 168, 128, 0.4);
+}
+
+.arvi-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 34px;
+  background: transparent;
+  color: #ffffff !important;
+  font-family: var(--arvi-font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: var(--arvi-transition);
+}
+
+.arvi-btn-secondary:hover {
+  border-color: var(--arvi-gold);
+  color: var(--arvi-gold) !important;
+  background: rgba(197, 168, 128, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. VALUE PROPOSITIONS & SWISS TRUST BAR
+   ========================================================================== */
+.arvi-trust-bar {
+  background: #111113;
+  border-top: 1px solid rgba(197, 168, 128, 0.2);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 32px 0;
+  color: #ffffff;
+}
+
+.arvi-trust-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.arvi-trust-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arvi-trust-card:last-child {
+  border-right: none;
+}
+
+.arvi-trust-icon-box {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(197, 168, 128, 0.1);
+  border: 1px solid var(--arvi-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--arvi-gold);
+}
+
+.arvi-trust-icon-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+.arvi-trust-text h3 {
+  font-family: var(--arvi-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f0ece1;
+  margin: 0 0 4px 0;
+}
+
+.arvi-trust-text p {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--arvi-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. ELEVATED PRODUCT CARDS & COLLECTION GRIDS
+   ========================================================================== */
+.arvi-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin: 40px 0;
+}
+
+.arvi-product-card {
+  background: var(--arvi-noir-card);
+  border: 1px solid rgba(197, 168, 128, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  transition: var(--arvi-transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.arvi-product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(197, 168, 128, 0.45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(197, 168, 128, 0.1);
+}
+
+.arvi-card-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.arvi-critic-badge {
+  background: var(--arvi-bordeaux);
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-family: var(--arvi-font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.arvi-provenance-tag {
+  background: rgba(10, 10, 11, 0.85);
+  border: 1px solid var(--arvi-gold);
+  color: var(--arvi-gold-bright);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  backdrop-filter: blur(4px);
+}
+
+.arvi-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: radial-gradient(circle at center, #242429 0%, #151518 70%, #0d0d0f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.arvi-card-media img {
+  max-height: 86%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arvi-product-card:hover .arvi-card-media img {
+  transform: scale(1.06) translateY(-4px);
+}
+
+.arvi-card-quick-actions {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--arvi-transition);
+  z-index: 4;
+}
+
+.arvi-product-card:hover .arvi-card-quick-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arvi-card-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.arvi-card-producer {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--arvi-gold);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.arvi-card-title {
+  font-family: var(--arvi-font-serif);
+  font-size: 20px;
+  line-height: 1.25;
+  color: #f7f5f0;
+  margin: 0 0 8px 0;
+  text-decoration: none;
+}
+
+.arvi-card-title .vintage-year {
+  font-family: var(--arvi-font-mono);
+  color: var(--arvi-gold-bright);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.arvi-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--arvi-muted);
+  margin-bottom: 14px;
+}
+
+.arvi-card-price-row {
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arvi-card-price {
+  font-family: var(--arvi-font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.arvi-card-tax {
+  font-size: 11px;
+  color: var(--arvi-muted);
+}
+
+/* ==========================================================================
+   5. ELEVATED PRODUCT PAGE: 360° VIEWER, SPECS & PERSUASIVE CALL-OUTS
+   ========================================================================== */
+.arvi-product-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  align-items: start;
+}
+
+/* Interactive Bottle Showcase */
+.arvi-bottle-viewer-wrapper {
+  position: sticky;
+  top: 110px;
+  background: radial-gradient(circle at 50% 40%, #1e1e24 0%, #111114 65%, #09090a 100%);
+  border: 1px solid var(--arvi-noir-border);
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: var(--arvi-shadow-luxe);
+}
+
+.arvi-bottle-viewport {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.arvi-bottle-viewport:active {
+  cursor: grabbing;
+}
+
+.arvi-bottle-viewport img {
+  max-height: 94%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.75));
+  transition: transform 0.15s ease-out;
+}
+
+/* Magnifier Lens */
+.arvi-magnifier-lens {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid var(--arvi-gold);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(197, 168, 128, 0.3);
+  pointer-events: none;
+  display: none;
+  z-index: 10;
+  background-repeat: no-repeat;
+}
+
+/* Bottle Viewer Controls */
+.arvi-viewer-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.arvi-toolbar-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  color: var(--arvi-gold);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--arvi-transition);
+}
+
+.arvi-toolbar-btn:hover, .arvi-toolbar-btn.active {
+  background: var(--arvi-gold);
+  color: #000000;
+  border-color: var(--arvi-gold);
+}
+
+/* Product Info Column */
+.arvi-product-details {
+  color: #f7f5f2;
+}
+
+.arvi-product-breadcrumbs {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--arvi-muted);
+  margin-bottom: 16px;
+}
+
+.arvi-product-breadcrumbs a {
+  color: var(--arvi-muted);
+  text-decoration: none;
+  transition: var(--arvi-transition);
+}
+
+.arvi-product-breadcrumbs a:hover {
+  color: var(--arvi-gold);
+}
+
+.arvi-product-appellation {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--arvi-gold);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.arvi-product-heading {
+  font-family: var(--arvi-font-serif);
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.12;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  color: #ffffff;
+}
+
+.arvi-product-heading .vintage-highlight {
+  font-family: var(--arvi-font-mono);
+  color: var(--arvi-gold-bright);
+}
+
+/* Critic Matrix */
+.arvi-critic-matrix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 28px;
+}
+
+.arvi-critic-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: 4px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.arvi-critic-name {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #bbb7af;
+}
+
+.arvi-critic-points {
+  font-family: var(--arvi-font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--arvi-gold-bright);
+}
+
+/* Vintage Matrix Selector */
+.arvi-vintage-selector-section {
+  margin: 24px 0;
+}
+
+.arvi-vintage-selector-section label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--arvi-gold);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.arvi-vintage-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.arvi-vintage-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-family: var(--arvi-font-mono);
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--arvi-transition);
+}
+
+.arvi-vintage-btn:hover {
+  border-color: var(--arvi-gold);
+  color: var(--arvi-gold-bright);
+}
+
+.arvi-vintage-btn.selected {
+  background: var(--arvi-bordeaux);
+  border-color: var(--arvi-bordeaux);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 0 15px var(--arvi-bordeaux-glow);
+}
+
+/* Format & OWC Selector */
+.arvi-format-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.arvi-format-option {
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  background: rgba(18, 18, 20, 0.8);
+  border-radius: 4px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--arvi-transition);
+}
+
+.arvi-format-option.selected, .arvi-format-option:hover {
+  border-color: var(--arvi-gold);
+  background: rgba(197, 168, 128, 0.08);
+}
+
+.arvi-format-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.arvi-format-price {
+  font-size: 11px;
+  color: var(--arvi-gold-bright);
+  font-family: var(--arvi-font-mono);
+}
+
+/* Price & Live Cellar Callout */
+.arvi-product-price-box {
+  background: rgba(24, 24, 28, 0.7);
+  border: 1px solid var(--arvi-noir-border);
+  border-radius: 6px;
+  padding: 24px;
+  margin: 28px 0;
+}
+
+.arvi-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.arvi-main-price {
+  font-size: 36px;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: var(--arvi-font-sans);
+  letter-spacing: -0.02em;
+}
+
+.arvi-tax-note {
+  font-size: 12px;
+  color: var(--arvi-muted);
+}
+
+.arvi-stock-provenance-callout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(92, 26, 27, 0.2);
+  border-left: 3px solid var(--arvi-gold);
+  border-radius: 0 4px 4px 0;
+  font-size: 12px;
+  color: #e5e0d8;
+  margin-bottom: 20px;
+}
+
+.arvi-stock-provenance-callout svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--arvi-gold);
+  flex-shrink: 0;
+}
+
+.arvi-actions-row {
+  display: flex;
+  gap: 12px;
+}
+
+.arvi-qty-input {
+  width: 70px;
+  background: #111113;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--arvi-font-mono);
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.arvi-btn-add-cart {
+  flex-grow: 1;
+}
+
+/* Sommelier Concierge Strip */
+.arvi-sommelier-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(197, 168, 128, 0.3);
+  border-radius: 4px;
+  font-size: 12px;
+  color: #cbc6bd;
+}
+
+.arvi-sommelier-strip a {
+  color: var(--arvi-gold-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Wine Technical Dossier */
+.arvi-technical-dossier {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 32px;
+}
+
+.arvi-technical-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.arvi-spec-item {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.arvi-spec-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--arvi-muted);
+  margin-bottom: 4px;
+}
+
+.arvi-spec-value {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   6. PHYSICAL BOUTIQUES SHOWCASE (MELANO, LUGANO, ZURICH)
+   ========================================================================== */
+.arvi-boutiques-section {
+  background: #0d0d0f;
+  padding: 90px 0;
+  border-top: 1px solid rgba(197, 168, 128, 0.15);
+  color: #ffffff;
+}
+
+.arvi-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+
+.arvi-section-kicker {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--arvi-gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.arvi-section-title {
+  font-family: var(--arvi-font-serif);
+  font-size: clamp(32px, 4vw, 46px);
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-weight: 300;
+}
+
+.arvi-section-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--arvi-muted);
+}
+
+.arvi-boutiques-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 24px;
+}
+
+.arvi-boutique-card {
+  background: #141417;
+  border: 1px solid var(--arvi-noir-border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: var(--arvi-transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.arvi-boutique-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--arvi-gold);
+  box-shadow: var(--arvi-shadow-luxe);
+}
+
+.arvi-boutique-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.arvi-boutique-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.arvi-boutique-card:hover .arvi-boutique-image-wrap img {
+  transform: scale(1.08);
+}
+
+.arvi-boutique-city-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(10, 10, 11, 0.88);
+  border: 1px solid var(--arvi-gold);
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+}
+
+.arvi-boutique-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.arvi-boutique-name {
+  font-family: var(--arvi-font-serif);
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.arvi-boutique-highlight {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cfcac0;
+  margin-bottom: 20px;
+}
+
+.arvi-boutique-meta-list {
+  font-size: 12px;
+  color: var(--arvi-muted);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+}
+
+.arvi-boutique-meta-list li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arvi-boutique-meta-list svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--arvi-gold);
+}
+
+.arvi-boutique-card .arvi-btn-secondary {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* ==========================================================================
+   7. STICKY MOBILE LUXURY BUY BAR & RESPONSIVE REFINEMENTS
+   ========================================================================== */
+.arvi-sticky-cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(13, 13, 15, 0.96);
+  border-top: 1px solid var(--arvi-gold);
+  backdrop-filter: blur(20px);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.arvi-sticky-cart-bar.visible {
+  transform: translateY(0);
+}
+
+.arvi-sticky-prod-snippet {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.arvi-sticky-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  background: #1e1e24;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.arvi-sticky-title {
+  font-family: var(--arvi-font-serif);
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.arvi-sticky-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--arvi-gold-bright);
+}
+
+@media screen and (max-width: 991px) {
+  .arvi-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .arvi-product-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .arvi-bottle-viewer-wrapper {
+    position: relative;
+    top: 0;
+  }
+  .arvi-boutiques-grid {
+    grid-template-columns: 1fr;
+  }
+  .arvi-mega-menu {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .arvi-trust-grid {
+    grid-template-columns: 1fr;
+  }
+  .arvi-bottle-viewport {
+    height: 400px;
+  }
+  .arvi-trust-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ==========================================================================
+   10. MOBILE NAVIGATION DRAWER & RESPONSIVE LUXURY CONTROLS
+   ========================================================================== */
+.arvi-hamburger {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  border-radius: 4px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+  transition: var(--arvi-transition);
+}
+
+.arvi-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--arvi-gold);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.arvi-hamburger.active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.arvi-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.arvi-hamburger.active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Mobile Drawer Overlay */
+.arvi-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.arvi-drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Drawer Container */
+.arvi-mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 340px;
+  max-width: 88vw;
+  background: #0e0e11;
+  border-left: 1px solid rgba(197, 168, 128, 0.25);
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 24px;
+  overflow-y: auto;
+}
+
+.arvi-mobile-drawer.active {
+  transform: translateX(0);
+}
+
+.arvi-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+  margin-bottom: 24px;
+}
+
+.arvi-drawer-close {
+  background: transparent;
+  border: none;
+  color: var(--arvi-muted);
+  cursor: pointer;
+  padding: 6px;
+  font-size: 20px;
+  transition: var(--arvi-transition);
+}
+
+.arvi-drawer-close:hover {
+  color: var(--arvi-gold);
+}
+
+.arvi-drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.arvi-drawer-link {
+  font-family: var(--arvi-font-serif);
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  color: #f7f5f0;
+  text-decoration: none;
+  display: block;
+  transition: var(--arvi-transition);
+}
+
+.arvi-drawer-link:hover, .arvi-drawer-link.active {
+  color: var(--arvi-gold-bright);
+  padding-left: 8px;
+}
+
+.arvi-drawer-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.arvi-drawer-contact {
+  font-size: 12px;
+  color: var(--arvi-text-dim);
+  line-height: 1.6;
+}
+
+.arvi-drawer-contact a {
+  color: var(--arvi-gold);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   11. COLLECTION / FINE WINE VAULT CATALOG STYLES
+   ========================================================================== */
+.arvi-catalog-hero {
+  padding: 60px 0 35px 0;
+  background: radial-gradient(circle at 50% 0%, #1c1815 0%, #0a0a0b 80%);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.18);
+  text-align: center;
+}
+
+.arvi-catalog-hero .arvi-kicker {
+  color: var(--arvi-gold);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.arvi-catalog-hero h1 {
+  font-family: var(--arvi-font-serif);
+  font-size: clamp(32px, 4vw, 46px);
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.arvi-catalog-hero p {
+  color: var(--arvi-text-dim);
+  max-width: 680px;
+  margin: 0 auto 24px auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.arvi-vault-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.arvi-vault-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(197, 168, 128, 0.22);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #ded9d0;
+}
+
+.arvi-vault-pill span {
+  color: var(--arvi-gold);
+}
+
+/* Filter & Controls Bar */
+.arvi-controls-bar {
+  position: sticky;
+  top: 76px;
+  z-index: 99;
+  background: rgba(14, 14, 17, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+  padding: 16px 0;
+}
+
+.arvi-controls-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.arvi-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.arvi-filter-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.arvi-filter-tab {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #a8a5a0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--arvi-transition);
+}
+
+.arvi-filter-tab:hover, .arvi-filter-tab.active {
+  background: rgba(197, 168, 128, 0.15);
+  border-color: var(--arvi-gold);
+  color: var(--arvi-gold-bright);
+}
+
+.arvi-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.arvi-search-box {
+  position: relative;
+  min-width: 220px;
+}
+
+.arvi-search-box input {
+  background: #18181c;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  color: #ffffff;
+  padding: 8px 12px 8px 34px;
+  font-size: 12px;
+  border-radius: 4px;
+  width: 100%;
+  outline: none;
+  transition: var(--arvi-transition);
+}
+
+.arvi-search-box input:focus {
+  border-color: var(--arvi-gold);
+  box-shadow: 0 0 10px rgba(197, 168, 128, 0.2);
+}
+
+.arvi-search-box svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--arvi-gold);
+  pointer-events: none;
+}
+
+.arvi-select-styled {
+  background: #18181c;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  color: #ded9d0;
+  padding: 8px 14px;
+  font-size: 12px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.arvi-select-styled:focus {
+  border-color: var(--arvi-gold);
+}
+
+.arvi-view-toggle {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.arvi-view-btn {
+  background: transparent;
+  border: none;
+  padding: 7px 10px;
+  color: #8c8984;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: var(--arvi-transition);
+}
+
+.arvi-view-btn.active, .arvi-view-btn:hover {
+  background: rgba(197, 168, 128, 0.2);
+  color: var(--arvi-gold);
+}
+
+/* Secondary Filter Bar (Vintage & Critic pills) */
+.arvi-subfilters-bar {
+  background: #0d0d10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px 0;
+}
+
+.arvi-subfilters-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.arvi-subfilter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.arvi-filter-chip {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--arvi-text-dim);
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: var(--arvi-transition);
+}
+
+.arvi-filter-chip:hover, .arvi-filter-chip.active {
+  border-color: var(--arvi-gold);
+  color: var(--arvi-gold-bright);
+  background: rgba(197, 168, 128, 0.1);
+}
+
+.arvi-catalog-count {
+  font-family: var(--arvi-font-mono);
+  font-size: 11px;
+  color: var(--arvi-gold);
+}
+
+/* List View Variant */
+.arvi-card-grid.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.arvi-card-grid.list-view .arvi-product-card {
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.arvi-card-grid.list-view .arvi-card-badges {
+  position: static;
+  margin-bottom: 0;
+  gap: 8px;
+}
+
+.arvi-card-grid.list-view .arvi-card-media {
+  width: 110px;
+  height: 120px;
+  aspect-ratio: auto;
+  padding: 6px;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.arvi-card-grid.list-view .arvi-card-info {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 0 0 20px;
+}
+
+.arvi-card-grid.list-view .arvi-card-quick-actions {
+  position: static;
+  opacity: 1;
+  transform: none;
+  min-width: 180px;
+}
+
+/* Responsive adjustments for catalog */
+@media screen and (max-width: 991px) {
+  .arvi-hamburger {
+    display: flex;
+  }
+  .arvi-nav-links {
+    display: none;
+  }
+  .arvi-controls-bar {
+    top: 68px;
+  }
+  .arvi-card-grid.list-view .arvi-product-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+  .arvi-card-grid.list-view .arvi-card-media {
+    width: 100%;
+    height: 220px;
+  }
+  .arvi-card-grid.list-view .arvi-card-info {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .arvi-card-grid.list-view .arvi-card-quick-actions {
+    width: 100%;
+  }
+}
+

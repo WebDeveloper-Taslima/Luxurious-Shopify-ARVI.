@@ -1,0 +1,89 @@
+[
+  {
+    "name": "ARVI Luxury & Swiss Heritage Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Luxury Color Palette"
+      },
+      {
+        "type": "color",
+        "id": "arvi_gold",
+        "label": "Champagne Gold Accent",
+        "default": "#C5A880"
+      },
+      {
+        "type": "color",
+        "id": "arvi_bordeaux",
+        "label": "Imperial Wine Bordeaux",
+        "default": "#5C1A1B"
+      },
+      {
+        "type": "color",
+        "id": "arvi_noir",
+        "label": "Deep Swiss Obsidian (Dark Surface)",
+        "default": "#0A0A0B"
+      },
+      {
+        "type": "header",
+        "content": "Swiss VAT & Tax-Free Bonded Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_tax_toggle",
+        "label": "Enable IVA Incl. / Excl. Switcher",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "swiss_vat_rate",
+        "label": "Swiss VAT Rate (%)",
+        "default": "8.1"
+      },
+      {
+        "type": "header",
+        "content": "Sommelier Concierge Direct Contact"
+      },
+      {
+        "type": "text",
+        "id": "sommelier_phone",
+        "label": "Melano Head Sommelier Phone",
+        "default": "+41 91 649 68 88"
+      },
+      {
+        "type": "text",
+        "id": "sommelier_whatsapp",
+        "label": "WhatsApp International Number",
+        "default": "41916496888"
+      },
+      {
+        "type": "text",
+        "id": "sommelier_email",
+        "label": "Concierge Email",
+        "default": "info@arvi.ch"
+      },
+      {
+        "type": "header",
+        "content": "Arvino Physical Boutiques"
+      },
+      {
+        "type": "text",
+        "id": "melano_hours",
+        "label": "Melano Headquarters Hours",
+        "default": "Mon - Fri: 8:30–12:30 / 13:00–18:00"
+      },
+      {
+        "type": "text",
+        "id": "lugano_hours",
+        "label": "Lugano Boutique Hours",
+        "default": "Tue - Sat: 10:00 - 19:00"
+      },
+      {
+        "type": "text",
+        "id": "zurich_hours",
+        "label": "Zurich Boutique Hours",
+        "default": "Mon - Sat: 10:00 - 18:00"
+      }
+    ]
+  }
+]

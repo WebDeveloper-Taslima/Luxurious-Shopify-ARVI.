@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "arvi-luxury-product-main",
+      "settings": {}
+    },
+    "storytelling": {
+      "type": "arvi-brand-storytelling",
+      "settings": {}
+    },
+    "related": {
+      "type": "arvi-curated-collections",
+      "settings": {
+        "collection": "all"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "storytelling",
+    "related"
+  ]
+}

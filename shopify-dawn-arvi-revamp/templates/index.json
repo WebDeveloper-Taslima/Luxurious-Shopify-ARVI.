@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "heritage_hero": {
+      "type": "arvi-hero-heritage",
+      "settings": {
+        "kicker": "Established 1991 • Melano, Switzerland",
+        "heading": "Switzerland’s Premier Destination for Fine & Rare Wines",
+        "subheading": "Direct châteaux allocations, subterranean climate-controlled cellars, and bespoke sommelier advisory. Over 10,000 legendary labels ready for Swiss & global delivery.",
+        "button_primary_label": "Explore Fine Wine Vault",
+        "button_primary_link": "/collections/all",
+        "button_secondary_label": "Discover Our Boutiques",
+        "button_secondary_link": "/pages/shops"
+      }
+    },
+    "value_propositions": {
+      "type": "arvi-value-propositions",
+      "settings": {}
+    },
+    "curated_collections": {
+      "type": "arvi-curated-collections",
+      "settings": {
+        "collection": "frontpage"
+      }
+    },
+    "storytelling": {
+      "type": "arvi-brand-storytelling",
+      "settings": {}
+    },
+    "boutiques": {
+      "type": "arvi-boutiques-showcase",
+      "settings": {}
+    }
+  },
+  "order": [
+    "heritage_hero",
+    "value_propositions",
+    "curated_collections",
+    "storytelling",
+    "boutiques"
+  ]
+}

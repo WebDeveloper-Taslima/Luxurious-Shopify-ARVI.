@@ -1,0 +1,187 @@
+{% comment %}
+  ARVI Curated Fine Wine Collections Section
+  Compatible with Shopify Dawn 16.0+
+{% endcomment %}
+
+<section style="background: #0a0a0b; padding: 80px 0; color: #ffffff;">
+  <div class="arvi-section-header">
+    <span class="arvi-section-kicker">Curated Vault Portfolios</span>
+    <h2 class="arvi-section-title">Iconic Fine Wine Collections</h2>
+    <p class="arvi-section-desc">
+      Explore legendary appellations and rare vintages sourced directly from the world’s most esteemed estates.
+    </p>
+  </div>
+
+  <div style="max-width: 1400px; margin: 0 auto; padding: 0 24px;">
+    <!-- Category Tabs / Filter Pills -->
+    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px;">
+      <a href="/collections/bordeaux" class="arvi-btn-secondary" style="border-color: var(--arvi-gold); color: var(--arvi-gold-bright) !important; background: rgba(197, 168, 128, 0.08);">Bordeaux First Growths</a>
+      <a href="/collections/burgundy" class="arvi-btn-secondary">Burgundy Grand Cru</a>
+      <a href="/collections/super-tuscans" class="arvi-btn-secondary">Super Tuscans</a>
+      <a href="/collections/champagne" class="arvi-btn-secondary">Prestige Champagne</a>
+      <a href="/collections/en-primeur" class="arvi-btn-secondary">En Primeur Allocations</a>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="arvi-card-grid">
+      {% for product in collections[section.settings.collection].products limit: 4 %}
+        {% render 'arvi-product-card-luxury', card_product: product %}
+      {% else %}
+        <!-- Sample Fallbacks for Preview / Empty Collection -->
+        <article class="arvi-product-card">
+          <div class="arvi-card-badges">
+            <span class="arvi-critic-badge">100 RP</span>
+            <span class="arvi-provenance-tag">Melano Vault</span>
+          </div>
+          <div class="arvi-card-media">
+            <a href="/products/chateau-petrus-2009">
+              <img src="https://arvi.ch/images/thumbs/0002403_Ausone_3846_1223_375.png" alt="Château Ausone Saint-Émilion Premier Grand Cru" loading="lazy">
+            </a>
+            <div class="arvi-card-quick-actions">
+              <a href="/products/chateau-ausone-1995" class="arvi-btn-primary" style="flex: 1; padding: 10px; font-size: 11px;">
+                <span>Inspect Bottle</span>
+              </a>
+            </div>
+          </div>
+          <div class="arvi-card-info">
+            <div class="arvi-card-producer">Saint-Émilion Premier Grand Cru Classé A</div>
+            <h3 class="arvi-card-title">
+              <a href="/products/chateau-ausone-1995" style="color: inherit; text-decoration: none;">
+                Château Ausone <span class="vintage-year">1995</span>
+              </a>
+            </h3>
+            <div class="arvi-card-meta">
+              <span>750ml</span> • <span>Ex-Château OWC</span>
+            </div>
+            <div class="arvi-card-price-row">
+              <span class="arvi-card-price">CHF 1,290.00</span>
+              <span class="arvi-card-tax">Incl. VAT</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="arvi-product-card">
+          <div class="arvi-card-badges">
+            <span class="arvi-critic-badge">100 JS</span>
+            <span class="arvi-provenance-tag">Direct Estate</span>
+          </div>
+          <div class="arvi-card-media">
+            <a href="/products/masseto-2010">
+              <img src="https://arvi.ch/images/thumbs/0004339_Masseto_6923_3010_375.png" alt="Masseto Toscana IGT" loading="lazy">
+            </a>
+            <div class="arvi-card-quick-actions">
+              <a href="/products/masseto-2010" class="arvi-btn-primary" style="flex: 1; padding: 10px; font-size: 11px;">
+                <span>Inspect Bottle</span>
+              </a>
+            </div>
+          </div>
+          <div class="arvi-card-info">
+            <div class="arvi-card-producer">Tenuta dell'Ornellaia • Tuscany</div>
+            <h3 class="arvi-card-title">
+              <a href="/products/masseto-2010" style="color: inherit; text-decoration: none;">
+                Masseto <span class="vintage-year">2010</span>
+              </a>
+            </h3>
+            <div class="arvi-card-meta">
+              <span>750ml</span> • <span>100% Merlot Single Vineyard</span>
+            </div>
+            <div class="arvi-card-price-row">
+              <span class="arvi-card-price">CHF 1,150.00</span>
+              <span class="arvi-card-tax">Incl. VAT</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="arvi-product-card">
+          <div class="arvi-card-badges">
+            <span class="arvi-critic-badge">99 WA</span>
+            <span class="arvi-provenance-tag">Pauillac</span>
+          </div>
+          <div class="arvi-card-media">
+            <a href="/products/chateau-lafite-rothschild-1985">
+              <img src="https://arvi.ch/images/thumbs/0003713_Lafite-Rothschild_4244_2796_375.png" alt="Château Lafite Rothschild Premier Grand Cru Classé" loading="lazy">
+            </a>
+            <div class="arvi-card-quick-actions">
+              <a href="/products/chateau-lafite-rothschild-1985" class="arvi-btn-primary" style="flex: 1; padding: 10px; font-size: 11px;">
+                <span>Inspect Bottle</span>
+              </a>
+            </div>
+          </div>
+          <div class="arvi-card-info">
+            <div class="arvi-card-producer">Pauillac Premier Grand Cru Classé</div>
+            <h3 class="arvi-card-title">
+              <a href="/products/chateau-lafite-rothschild-1985" style="color: inherit; text-decoration: none;">
+                Château Lafite Rothschild <span class="vintage-year">1985</span>
+              </a>
+            </h3>
+            <div class="arvi-card-meta">
+              <span>750ml</span> • <span>Pristine Fill Level</span>
+            </div>
+            <div class="arvi-card-price-row">
+              <span class="arvi-card-price">CHF 1,480.00</span>
+              <span class="arvi-card-tax">Incl. VAT</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="arvi-product-card">
+          <div class="arvi-card-badges">
+            <span class="arvi-critic-badge">98 AG</span>
+            <span class="arvi-provenance-tag">Reims</span>
+          </div>
+          <div class="arvi-card-media">
+            <a href="/products/krug-grande-cuvee-173">
+              <img src="https://arvi.ch/images/thumbs/0047494_ChampagneBrutGrandeCuveeEdition173_Krug_0_7500_80613_1_375.png" alt="Krug Champagne Brut Grande Cuvée Edition 173" loading="lazy">
+            </a>
+            <div class="arvi-card-quick-actions">
+              <a href="/products/krug-grande-cuvee-173" class="arvi-btn-primary" style="flex: 1; padding: 10px; font-size: 11px;">
+                <span>Inspect Bottle</span>
+              </a>
+            </div>
+          </div>
+          <div class="arvi-card-info">
+            <div class="arvi-card-producer">Maison Krug • Reims, Champagne</div>
+            <h3 class="arvi-card-title">
+              <a href="/products/krug-grande-cuvee-173" style="color: inherit; text-decoration: none;">
+                Krug Grande Cuvée <span class="vintage-year">Ed. 173</span>
+              </a>
+            </h3>
+            <div class="arvi-card-meta">
+              <span>750ml</span> • <span>Gift Box Edition</span>
+            </div>
+            <div class="arvi-card-price-row">
+              <span class="arvi-card-price">CHF 295.00</span>
+              <span class="arvi-card-tax">Incl. VAT</span>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="/collections/all" class="arvi-btn-secondary" style="padding: 16px 42px;">
+        <span>View Full 10,000+ Bottle Cellar Catalog</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ARVI Curated Collections",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Featured Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ARVI Curated Collections"
+    }
+  ]
+}
+{% endschema %}

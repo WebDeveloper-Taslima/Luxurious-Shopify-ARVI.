@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fine Wine Vault | Curated Allocations & Rare Vintages | ARVI SA</title>
+  <meta name="description" content="Explore investment-grade fine wines directly allocated from Bordeaux, Burgundy, Tuscany, and Champagne. Stored in our Swiss subterranean vaults in Melano.">
+
+  <!-- Google Fonts: Editorial Serif + Modern Swiss Sans + Tabular Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Master Luxury Styling -->
+  <link rel="stylesheet" href="css/arvi-luxury.css">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--arvi-noir); color: #ffffff; line-height: 1.5; overflow-x: hidden; }
+
+    /* Top Navigation bar */
+    .arvi-header-main {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(10, 10, 11, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+    }
+
+    .arvi-nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .arvi-logo-mark {
+      font-family: var(--arvi-font-serif);
+      font-size: 28px;
+      letter-spacing: 0.18em;
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .arvi-logo-mark span { color: var(--arvi-gold); }
+
+    .arvi-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .arvi-nav-link {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ded9d0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--arvi-transition);
+    }
+
+    .arvi-nav-link:hover, .arvi-nav-link.active {
+      color: var(--arvi-gold);
+    }
+
+    .arvi-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .arvi-icon-btn {
+      background: transparent;
+      border: none;
+      color: #ded9d0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      transition: var(--arvi-transition);
+      text-decoration: none;
+    }
+
+    .arvi-icon-btn:hover {
+      color: var(--arvi-gold);
+    }
+
+    /* Notification Toast */
+    .arvi-toast {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: #18181c;
+      border: 1px solid var(--arvi-gold);
+      padding: 16px 24px;
+      border-radius: 4px;
+      box-shadow: var(--arvi-shadow-luxe);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+      animation: fadeInSlide 0.3s ease;
+    }
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Control Bar -->
+  <div style="background: linear-gradient(90deg, #18181c, #261f18); border-bottom: 1px solid var(--arvi-gold); padding: 8px 16px; text-align: center; font-size: 12px; letter-spacing: 0.08em; display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap;">
+    <span>⚡ <strong style="color:var(--arvi-gold-bright)">INTERACTIVE DEMO</strong>: Fine Wine Vault Catalog & Allocations</span>
+    <a href="index.html" style="background:transparent; color:#ded9d0; border:1px solid rgba(255,255,255,0.2); padding:4px 10px; border-radius:3px; text-decoration:none; font-size:11px;">&larr; Homepage</a>
+    <a href="product-sample.html" style="background:transparent; color:#ded9d0; border:1px solid rgba(255,255,255,0.2); padding:4px 10px; border-radius:3px; text-decoration:none; font-size:11px;">Product 360° & Zoom &rarr;</a>
+    <a href="shops.html" style="background:transparent; color:var(--arvi-gold); border:1px solid var(--arvi-gold); padding:4px 10px; border-radius:3px; text-decoration:none; font-size:11px;">Boutiques (arvi.ch/shops) &rarr;</a>
+  </div>
+
+  <!-- Top Utilities Bar -->
+  <aside class="arvi-header-topbar" aria-label="Quick utilities and preferences">
+    <div class="arvi-topbar-inner">
+      <div class="arvi-topbar-left">
+        <a href="tel:+41916496888" class="arvi-topbar-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Melano HQ: +41 91 649 68 88</span>
+        </a>
+        <a href="shops.html" class="arvi-topbar-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Boutiques: Melano • Lugano • Zurich</span>
+        </a>
+      </div>
+      <div class="arvi-topbar-right">
+        <!-- Bonded / VAT Duty-Free Switcher -->
+        <div style="display:flex; align-items:center; gap:6px;">
+          <label for="arviTaxSwitchCatalog" style="color:var(--arvi-muted); font-size:11px;">Delivery / Vault:</label>
+          <select id="arviTaxSwitchCatalog" class="arvi-tax-selector" style="background:#18181c; color:#fff; border:1px solid rgba(197,168,128,0.4); font-size:11px; padding:3px 8px; border-radius:3px;">
+            <option value="chf-vat" selected>CHF (Incl. 8.1% Swiss VAT)</option>
+            <option value="chf-bonded">CHF (Bonded / Duty Free)</option>
+            <option value="eur-bonded">EUR (Bonded / Duty Free)</option>
+            <option value="usd-bonded">USD (Bonded / Duty Free)</option>
+          </select>
+        </div>
+
+        <!-- 6-Language Switcher -->
+        <div style="display:flex; align-items:center; gap:6px;">
+          <select class="arvi-lang-select" style="background:#18181c; color:#fff; border:1px solid rgba(197,168,128,0.4); font-size:11px; padding:3px 8px; border-radius:3px;">
+            <option value="en" selected>🇬🇧 EN</option>
+            <option value="it">🇮🇹 IT</option>
+            <option value="de">🇩🇪 DE</option>
+            <option value="fr">🇫🇷 FR</option>
+            <option value="es">🇪🇸 ES</option>
+            <option value="zh">🇨🇳 中文</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Luxury Header -->
+  <header class="arvi-header-main">
+    <div class="arvi-nav-inner">
+      <a href="index.html" class="arvi-logo-mark">A R V I<span>.</span></a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="arvi-nav-links">
+          <li><a href="index.html" class="arvi-nav-link" data-i18n="nav_home">Home</a></li>
+          <li><a href="collection.html" class="arvi-nav-link active" data-i18n="nav_wines">Fine Wines</a></li>
+          <li><a href="collection.html?filter=bordeaux" class="arvi-nav-link" data-i18n="nav_enprimeur">Bordeaux En Primeur</a></li>
+          <li><a href="product-sample.html" class="arvi-nav-link" data-i18n="nav_allocation">Featured Allocation</a></li>
+          <li><a href="shops.html" class="arvi-nav-link" data-i18n="nav_boutiques">Arvino Boutiques</a></li>
+          <li><a href="index.html#vault" class="arvi-nav-link" data-i18n="nav_vault">The Wine Vault</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions & Mobile Hamburger -->
+      <div class="arvi-nav-actions">
+        <a href="product-sample.html" class="arvi-icon-btn" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="arvi-cart-counter" style="font-family:var(--arvi-font-mono); color:var(--arvi-gold); font-size:12px;">(0)</span>
+        </a>
+
+        <!-- Responsive Hamburger Toggle (Active on Tablet & Mobile) -->
+        <button class="arvi-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="arvi-drawer-overlay"></div>
+
+  <!-- Mobile Slide-out Drawer Panel -->
+  <aside class="arvi-mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <div class="arvi-drawer-header">
+      <div class="arvi-logo-mark">A R V I<span>.</span></div>
+      <button class="arvi-drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+
+    <ul class="arvi-drawer-links">
+      <li><a href="index.html" class="arvi-drawer-link" data-i18n="nav_home">Home</a></li>
+      <li><a href="collection.html" class="arvi-drawer-link active" data-i18n="nav_wines">Fine Wine Vault</a></li>
+      <li><a href="collection.html?filter=bordeaux" class="arvi-drawer-link" data-i18n="nav_enprimeur">Bordeaux En Primeur</a></li>
+      <li><a href="product-sample.html" class="arvi-drawer-link" data-i18n="nav_allocation">Featured 360° Bottle</a></li>
+      <li><a href="shops.html" class="arvi-drawer-link" data-i18n="nav_boutiques">Arvino Boutiques</a></li>
+      <li><a href="index.html#vault" class="arvi-drawer-link" data-i18n="nav_vault">Subterranean Vault</a></li>
+    </ul>
+
+    <div class="arvi-drawer-footer">
+      <div class="arvi-drawer-contact">
+        <strong style="color:#ffffff; display:block; margin-bottom:4px;">Direct Sommelier Advisory</strong>
+        <p>Melano Central Vault: <a href="tel:+41916496888">+41 91 649 68 88</a></p>
+        <p>Email: <a href="mailto:info@arvi.ch">info@arvi.ch</a></p>
+      </div>
+      <a href="shops.html#book" class="arvi-btn-primary" style="text-align:center; padding:12px 18px; font-size:12px;">
+        Book Private Tasting
+      </a>
+    </div>
+  </aside>
+
+  <!-- 1. CATALOG HERO SECTION -->
+  <section class="arvi-catalog-hero">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 0 28px;">
+      <span class="arvi-kicker" data-i18n="collections_kicker">SWISS FINE & RARE ALLOCATIONS</span>
+      <h1 data-i18n="collections_title">The Fine Wine Vault</h1>
+      <p data-i18n="collections_desc">
+        Direct European châteaux allocations and rare historical vintages preserved under strict 12°C temperature and 70% humidity controls in our central subterranean vault.
+      </p>
+
+      <div class="arvi-vault-pills">
+        <div class="arvi-vault-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>100% Provenance Guaranteed</span>
+        </div>
+        <div class="arvi-vault-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          <span>10,000+ Bottles in Melano Vault</span>
+        </div>
+        <div class="arvi-vault-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Swiss Free Port Bonded Duty-Free</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. STICKY CONTROLS & FILTER BAR -->
+  <section class="arvi-controls-bar">
+    <div class="arvi-controls-inner">
+      <!-- Region Filter Tabs -->
+      <div class="arvi-filter-tabs">
+        <button class="arvi-filter-tab active" data-filter-region="all">All Allocations</button>
+        <button class="arvi-filter-tab" data-filter-region="bordeaux">Bordeaux Grand Cru</button>
+        <button class="arvi-filter-tab" data-filter-region="burgundy">Burgundy Grand Cru</button>
+        <button class="arvi-filter-tab" data-filter-region="tuscany">Super Tuscan & Italy</button>
+        <button class="arvi-filter-tab" data-filter-region="champagne">Rare Champagne</button>
+      </div>
+
+      <!-- Live Search & Sort & View Mode -->
+      <div class="arvi-controls-right">
+        <!-- Live Instant Search -->
+        <div class="arvi-search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="arviCatalogSearch" placeholder="Search châteaux or vintage..." aria-label="Search Fine Wines">
+        </div>
+
+        <!-- Critic Rating Filter -->
+        <select id="arviCriticFilter" class="arvi-select-styled" aria-label="Filter by Critic Score">
+          <option value="all">Critic Score: All</option>
+          <option value="100">100/100 Perfect Scores</option>
+          <option value="98">98+ Points (Exceptional)</option>
+          <option value="95">95+ Points (Outstanding)</option>
+        </select>
+
+        <!-- Sort Select -->
+        <select id="arviCatalogSort" class="arvi-select-styled" aria-label="Sort allocations">
+          <option value="default">Sort: Rarity & Vault Priority</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="score-desc">Critic Score: Top Rated</option>
+          <option value="vintage-asc">Vintage: Oldest First</option>
+        </select>
+
+        <!-- Grid vs List View Toggle -->
+        <div class="arvi-view-toggle">
+          <button id="viewGridBtn" class="arvi-view-btn active" title="Grid View" aria-label="Grid View">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </button>
+          <button id="viewListBtn" class="arvi-view-btn" title="Editorial List View" aria-label="List View">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SECONDARY VINTAGE FILTER BAR -->
+  <section class="arvi-subfilters-bar">
+    <div class="arvi-subfilters-inner">
+      <div class="arvi-subfilter-group">
+        <span style="color:var(--arvi-muted); font-size:11px; text-transform:uppercase; letter-spacing:0.1em;">Vintage Era:</span>
+        <button class="arvi-filter-chip active" data-filter-vintage="all">All Vintages</button>
+        <button class="arvi-filter-chip" data-filter-vintage="2020s">2020s</button>
+        <button class="arvi-filter-chip" data-filter-vintage="2010s">2010s</button>
+        <button class="arvi-filter-chip" data-filter-vintage="2000s">2000s</button>
+        <button class="arvi-filter-chip" data-filter-vintage="pre-2000">Historic Library (Pre-2000)</button>
+      </div>
+      <div class="arvi-catalog-count">Showing 6 investment-grade allocations</div>
+    </div>
+  </section>
+
+  <!-- 4. ALLOCATIONS PRODUCT GRID -->
+  <main style="max-width: 1440px; margin: 0 auto; padding: 20px 28px 60px 28px;">
+    <div class="arvi-card-grid">
+
+      <!-- BOTTLE 1: CHÂTEAU AUSONE 2005 -->
+      <article class="arvi-product-card" data-region="bordeaux" data-vintage="2005" data-score="100" data-price="1890">
+        <div class="arvi-card-badges">
+          <span class="arvi-critic-badge">100 RP</span>
+          <span class="arvi-provenance-tag">Direct Châteaux</span>
+        </div>
+        <div class="arvi-card-media">
+          <img src="images/ausone.png" alt="Château Ausone 2005 Saint-Émilion Grand Cru">
+          <div class="arvi-card-quick-actions">
+            <a href="product-sample.html" class="arvi-btn-secondary" style="flex:1; padding:8px; font-size:11px; text-align:center;">Inspect 360°</a>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="flex:1; padding:8px; font-size:11px;">Quick Reserve</button>
+          </div>
+        </div>
+        <div class="arvi-card-info">
+          <div class="arvi-card-producer">Saint-Émilion 1er Grand Cru Classé A</div>
+          <h2 class="arvi-card-title">
+            <a href="product-sample.html" style="color:inherit; text-decoration:none;">Château Ausone <span class="vintage-year">2005</span></a>
+          </h2>
+          <div class="arvi-card-meta">
+            <span>750ml Standard</span>
+            <span>Bordeaux, France</span>
+          </div>
+          <div class="arvi-scarcity-pill">
+            <span class="pulse-dot"></span>
+            <span>Only 2 bottles remaining in Melano Vault</span>
+          </div>
+          <div class="arvi-card-footer">
+            <div>
+              <div class="arvi-card-price" data-price-chf="1890" data-price-bonded="1748">CHF 1'890</div>
+              <div class="arvi-vat-note">Incl. 8.1% Swiss VAT</div>
+            </div>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="padding:10px 16px; font-size:12px;">Reserve</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- BOTTLE 2: ARMAND ROUSSEAU CHAMBERTIN CLOS DE BÈZE 2015 -->
+      <article class="arvi-product-card" data-region="burgundy" data-vintage="2015" data-score="99" data-price="3450">
+        <div class="arvi-card-badges">
+          <span class="arvi-critic-badge">99 JS</span>
+          <span class="arvi-provenance-tag">Domaine Allocation</span>
+        </div>
+        <div class="arvi-card-media">
+          <img src="images/chambertin.png" alt="Armand Rousseau Chambertin Clos de Bèze Grand Cru 2015">
+          <div class="arvi-card-quick-actions">
+            <a href="product-sample.html" class="arvi-btn-secondary" style="flex:1; padding:8px; font-size:11px; text-align:center;">Inspect 360°</a>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="flex:1; padding:8px; font-size:11px;">Quick Reserve</button>
+          </div>
+        </div>
+        <div class="arvi-card-info">
+          <div class="arvi-card-producer">Domaine Armand Rousseau</div>
+          <h2 class="arvi-card-title">
+            <a href="product-sample.html" style="color:inherit; text-decoration:none;">Chambertin Clos de Bèze <span class="vintage-year">2015</span></a>
+          </h2>
+          <div class="arvi-card-meta">
+            <span>Grand Cru</span>
+            <span>Côte de Nuits, Burgundy</span>
+          </div>
+          <div class="arvi-scarcity-pill">
+            <span class="pulse-dot"></span>
+            <span>Strict allocation: 1 bottle remaining</span>
+          </div>
+          <div class="arvi-card-footer">
+            <div>
+              <div class="arvi-card-price" data-price-chf="3450" data-price-bonded="3191">CHF 3'450</div>
+              <div class="arvi-vat-note">Incl. 8.1% Swiss VAT</div>
+            </div>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="padding:10px 16px; font-size:12px;">Reserve</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- BOTTLE 3: MASSETO 2010 -->
+      <article class="arvi-product-card" data-region="tuscany" data-vintage="2010" data-score="100" data-price="980">
+        <div class="arvi-card-badges">
+          <span class="arvi-critic-badge">100 RP</span>
+          <span class="arvi-provenance-tag">OWC 6-Pack</span>
+        </div>
+        <div class="arvi-card-media">
+          <img src="images/masseto.png" alt="Masseto 2010 Tenuta dell'Ornellaia">
+          <div class="arvi-card-quick-actions">
+            <a href="product-sample.html" class="arvi-btn-secondary" style="flex:1; padding:8px; font-size:11px; text-align:center;">Inspect 360°</a>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="flex:1; padding:8px; font-size:11px;">Quick Reserve</button>
+          </div>
+        </div>
+        <div class="arvi-card-info">
+          <div class="arvi-card-producer">Tenuta dell'Ornellaia</div>
+          <h2 class="arvi-card-title">
+            <a href="product-sample.html" style="color:inherit; text-decoration:none;">Masseto Toscana IGT <span class="vintage-year">2010</span></a>
+          </h2>
+          <div class="arvi-card-meta">
+            <span>100% Merlot</span>
+            <span>Bolgheri, Tuscany</span>
+          </div>
+          <div class="arvi-scarcity-pill">
+            <span class="pulse-dot"></span>
+            <span>4 bottles remaining in Melano</span>
+          </div>
+          <div class="arvi-card-footer">
+            <div>
+              <div class="arvi-card-price" data-price-chf="980" data-price-bonded="906">CHF 980</div>
+              <div class="arvi-vat-note">Incl. 8.1% Swiss VAT</div>
+            </div>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="padding:10px 16px; font-size:12px;">Reserve</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- BOTTLE 4: CHÂTEAU LAFITE ROTHSCHILD 2009 -->
+      <article class="arvi-product-card" data-region="bordeaux" data-vintage="2009" data-score="99" data-price="1250">
+        <div class="arvi-card-badges">
+          <span class="arvi-critic-badge">99+ RP</span>
+          <span class="arvi-provenance-tag">Direct Châteaux</span>
+        </div>
+        <div class="arvi-card-media">
+          <img src="images/lafite.png" alt="Château Lafite Rothschild 2009 Pauillac">
+          <div class="arvi-card-quick-actions">
+            <a href="product-sample.html" class="arvi-btn-secondary" style="flex:1; padding:8px; font-size:11px; text-align:center;">Inspect 360°</a>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="flex:1; padding:8px; font-size:11px;">Quick Reserve</button>
+          </div>
+        </div>
+        <div class="arvi-card-info">
+          <div class="arvi-card-producer">Pauillac 1er Grand Cru Classé</div>
+          <h2 class="arvi-card-title">
+            <a href="product-sample.html" style="color:inherit; text-decoration:none;">Château Lafite Rothschild <span class="vintage-year">2009</span></a>
+          </h2>
+          <div class="arvi-card-meta">
+            <span>Banded Wood Case</span>
+            <span>Médoc, Bordeaux</span>
+          </div>
+          <div class="arvi-scarcity-pill">
+            <span class="pulse-dot"></span>
+            <span>3 bottles available in Central Vault</span>
+          </div>
+          <div class="arvi-card-footer">
+            <div>
+              <div class="arvi-card-price" data-price-chf="1250" data-price-bonded="1156">CHF 1'250</div>
+              <div class="arvi-vat-note">Incl. 8.1% Swiss VAT</div>
+            </div>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="padding:10px 16px; font-size:12px;">Reserve</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- BOTTLE 5: KRUG CLOS D'AMBONNAY 2002 -->
+      <article class="arvi-product-card" data-region="champagne" data-vintage="2002" data-score="98" data-price="2850">
+        <div class="arvi-card-badges">
+          <span class="arvi-critic-badge">98 AG</span>
+          <span class="arvi-provenance-tag">Maison Allocation</span>
+        </div>
+        <div class="arvi-card-media">
+          <img src="images/krug.png" alt="Krug Clos d'Ambonnay Brut 2002">
+          <div class="arvi-card-quick-actions">
+            <a href="product-sample.html" class="arvi-btn-secondary" style="flex:1; padding:8px; font-size:11px; text-align:center;">Inspect 360°</a>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="flex:1; padding:8px; font-size:11px;">Quick Reserve</button>
+          </div>
+        </div>
+        <div class="arvi-card-info">
+          <div class="arvi-card-producer">Champagne Krug</div>
+          <h2 class="arvi-card-title">
+            <a href="product-sample.html" style="color:inherit; text-decoration:none;">Krug Clos d'Ambonnay <span class="vintage-year">2002</span></a>
+          </h2>
+          <div class="arvi-card-meta">
+            <span>100% Pinot Noir</span>
+            <span>Montagne de Reims</span>
+          </div>
+          <div class="arvi-scarcity-pill">
+            <span class="pulse-dot"></span>
+            <span>Only 1 bottle remaining</span>
+          </div>
+          <div class="arvi-card-footer">
+            <div>
+              <div class="arvi-card-price" data-price-chf="2850" data-price-bonded="2636">CHF 2'850</div>
+              <div class="arvi-vat-note">Incl. 8.1% Swiss VAT</div>
+            </div>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="padding:10px 16px; font-size:12px;">Reserve</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- BOTTLE 6: SAUTE-LOUPE RÉSERVE (PETRUS / MOUEIX) 2009 -->
+      <article class="arvi-product-card" data-region="bordeaux" data-vintage="2009" data-score="98" data-price="145">
+        <div class="arvi-card-badges">
+          <span class="arvi-critic-badge">98 RP</span>
+          <span class="arvi-provenance-tag">Exclusive Curation</span>
+        </div>
+        <div class="arvi-card-media">
+          <img src="images/hero_cellar.jpg" alt="Saute-Loupe Réserve Moueix 2009" style="object-fit:cover; border-radius:4px;">
+          <div class="arvi-card-quick-actions">
+            <a href="product-sample.html" class="arvi-btn-secondary" style="flex:1; padding:8px; font-size:11px; text-align:center;">Inspect 360°</a>
+            <button class="arvi-btn-primary" data-arvi-action="quick-reserve" style="flex:1; padding:8px; font-size:11px;">Quick Reserve</button>
+          </div>
+        </div>
+        <div class="arvi-card-info">
+          <div class="arvi-card-producer">Établissements Jean-Pierre Moueix (Pétrus)</div>
+          <h2 class="arvi-card-title">
+            <a href="product-sample.html" style="color:inherit; text-decoration:none;">Saute-Loupe Réserve <span class="vintage-year">2009</span></a>
+          </h2>
+          <div class="arvi-card-meta">
+            <span>Pomerol AOC</span>
+            <span>Bordeaux, France</span>
+          </div>
+          <div class="arvi-scarcity-pill">
+            <span class="pulse-dot"></span>
+            <span>Vault Ready: 18 bottles available</span>
+          </div>
+          <div class="arvi-card-footer">
+            <div>
+              <div class="arvi-card-price" data-price-chf="145" data-price-bonded="134">CHF 145</div>
+              <div class="arvi-vat-note">Incl. 8.1% Swiss VAT</div>
+            </div>
+            <a href="product-sample.html" class="arvi-btn-primary" style="padding:10px 16px; font-size:12px; text-decoration:none;">Inspect</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- 5. SWISS 4-PILLAR VALUE PROPOSITIONS -->
+  <section class="arvi-trust-section">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 0 28px;">
+      <div class="arvi-trust-grid">
+        <div class="arvi-trust-card">
+          <div class="arvi-trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="arvi-trust-title" data-i18n="trust_p1_title">100% Provenance Guaranteed</h3>
+          <p class="arvi-trust-desc" data-i18n="trust_p1_desc">Every single bottle is acquired directly from prestigious European châteaux or inspected single-owner cellars.</p>
+        </div>
+
+        <div class="arvi-trust-card">
+          <div class="arvi-trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+          </div>
+          <h3 class="arvi-trust-title" data-i18n="trust_p2_title">Subterranean Vault (12°C & 70%)</h3>
+          <p class="arvi-trust-desc" data-i18n="trust_p2_desc">Over 10,000 fine and rare bottles preserved in optimal, dark, vibration-free Swiss vault conditions in Melano.</p>
+        </div>
+
+        <div class="arvi-trust-card">
+          <div class="arvi-trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3 class="arvi-trust-title" data-i18n="trust_p3_title">Swiss Tax-Free Bonded & 24h Transit</h3>
+          <p class="arvi-trust-desc" data-i18n="trust_p3_desc">Store duty-free exempt from 8.1% Swiss VAT or arrange fully insured temperature-controlled worldwide shipping.</p>
+        </div>
+
+        <div class="arvi-trust-card">
+          <div class="arvi-trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="arvi-trust-title" data-i18n="trust_p4_title">Private Sommelier Advisory</h3>
+          <p class="arvi-trust-desc" data-i18n="trust_p4_desc">Bespoke portfolio management and private tasting salons in Zurich, Lugano, and Melano.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Master Footer -->
+  <footer class="arvi-footer">
+    <div class="arvi-footer-inner">
+      <div>
+        <div class="arvi-logo-mark" style="margin-bottom:14px; display:inline-block;">A R V I<span>.</span></div>
+        <p style="color:var(--arvi-text-dim); font-size:13px; max-width:320px; line-height:1.7;">
+          Switzerland’s premier purveyor of fine and rare wines since 1991. Headquarters & subterranean vault in Melano; luxury tasting salons in Lugano and Zurich.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="font-family:var(--arvi-font-serif); font-size:18px; color:#ffffff; margin-bottom:16px;">Curated Collections</h4>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:13px;">
+          <li><a href="collection.html?filter=bordeaux" style="color:var(--arvi-muted); text-decoration:none;">Bordeaux Grand Cru</a></li>
+          <li><a href="collection.html?filter=burgundy" style="color:var(--arvi-muted); text-decoration:none;">Burgundy Grand Cru</a></li>
+          <li><a href="collection.html?filter=tuscany" style="color:var(--arvi-muted); text-decoration:none;">Super Tuscans</a></li>
+          <li><a href="collection.html?filter=champagne" style="color:var(--arvi-muted); text-decoration:none;">Rare Vintage Champagne</a></li>
+          <li><a href="product-sample.html" style="color:var(--arvi-gold); text-decoration:none;">Featured Allocation (360°)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-family:var(--arvi-font-serif); font-size:18px; color:#ffffff; margin-bottom:16px;">Arvino Boutiques</h4>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:13px;">
+          <li><a href="shops.html#melano" style="color:var(--arvi-muted); text-decoration:none;">Arvino Melano (Central Vault)</a></li>
+          <li><a href="shops.html#lugano" style="color:var(--arvi-muted); text-decoration:none;">Arvino Lugano (Lakeside Salon)</a></li>
+          <li><a href="shops.html#zurich" style="color:var(--arvi-muted); text-decoration:none;">Arvino Zurich (Financial District)</a></li>
+          <li><a href="shops.html#book" style="color:var(--arvi-gold); text-decoration:none;">Book Private Tasting &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-family:var(--arvi-font-serif); font-size:18px; color:#ffffff; margin-bottom:16px;">Client Support & Cellar</h4>
+        <p style="color:var(--arvi-muted); font-size:13px; line-height:1.7;">
+          Via Pedemonte di Sopra 1<br>
+          6818 Melano, Switzerland<br>
+          Tel: <a href="tel:+41916496888" style="color:var(--arvi-gold); text-decoration:none;">+41 91 649 68 88</a><br>
+          Email: <a href="mailto:info@arvi.ch" style="color:var(--arvi-gold); text-decoration:none;">info@arvi.ch</a>
+        </p>
+      </div>
+    </div>
+
+    <div style="max-width:1440px; margin:40px auto 0 auto; padding:20px 28px 0 28px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; font-size:11px; color:var(--arvi-muted); flex-wrap:wrap; gap:12px;">
+      <div>&copy; 2026 ARVI SA. All rights reserved. Swiss Luxury Fine Wine Merchant.</div>
+      <div>Designed with Shopify Online Store 2.0 (Dawn 16.0+ Architectural Revamp).</div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Box -->
+  <div class="arvi-toast"></div>
+
+  <!-- Master Interactive Scripts -->
+  <script src="js/arvi-luxury.js"></script>
+
+</body>
+</html>

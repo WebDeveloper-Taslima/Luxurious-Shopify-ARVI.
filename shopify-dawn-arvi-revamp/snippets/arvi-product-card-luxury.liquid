@@ -1,0 +1,68 @@
+{% comment %}
+  ARVI Luxury Product Card for Collection Grids & Carousels
+  Compatible with Shopify Dawn 16.0+
+{% endcomment %}
+
+<article class="arvi-product-card" data-product-id="{{ card_product.id }}">
+  <div class="arvi-card-badges">
+    <span class="arvi-critic-badge">
+      {{ card_product.metafields.arvi.critic_score | default: '100 RP' }}
+    </span>
+    <span class="arvi-provenance-tag">
+      {{ card_product.metafields.arvi.storage_location | default: 'Melano Vault' }}
+    </span>
+  </div>
+
+  <div class="arvi-card-media">
+    <a href="{{ card_product.url }}" aria-label="{{ card_product.title | escape }}">
+      {% if card_product.featured_image %}
+        <img 
+          src="{{ card_product.featured_image | image_url: width: 600 }}" 
+          alt="{{ card_product.title | escape }} - ARVI Fine Wine"
+          loading="lazy"
+          width="400"
+          height="533"
+        >
+      {% else %}
+        <img 
+          src="https://arvi.ch/images/thumbs/0004339_Masseto_6923_3010_375.png" 
+          alt="{{ card_product.title | escape }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </a>
+
+    <div class="arvi-card-quick-actions">
+      <a href="{{ card_product.url }}" class="arvi-btn-primary" style="flex: 1; padding: 10px; font-size: 11px;">
+        <span>Inspect Bottle</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="arvi-card-info">
+    <div class="arvi-card-producer">
+      {{ card_product.vendor | default: 'Bordeaux Premier Cru' }}
+    </div>
+
+    <h3 class="arvi-card-title">
+      <a href="{{ card_product.url }}" style="color: inherit; text-decoration: none;">
+        {{ card_product.title }} <span class="vintage-year">{{ card_product.metafields.arvi.vintage | default: '2019' }}</span>
+      </a>
+    </h3>
+
+    <div class="arvi-card-meta">
+      <span>{{ card_product.metafields.arvi.format | default: '750ml' }}</span>
+      <span>•</span>
+      <span>{{ card_product.metafields.arvi.condition | default: 'Pristine OWC' }}</span>
+    </div>
+
+    <div class="arvi-card-price-row">
+      <div>
+        <span class="arvi-card-price">
+          CHF {{ card_product.price | money_without_currency | default: '2,053.90' }}
+        </span>
+      </div>
+      <span class="arvi-card-tax">Incl. VAT</span>
+    </div>
+  </div>
+</article>
